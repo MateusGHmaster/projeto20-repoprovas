@@ -12,13 +12,4 @@ app.use(json());
 app.use(router);
 /* app.use(handleErrorsMiddleware); */
 
-const PORT = +process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-
-    console.log(`Working and running on port ${PORT}!`);
-
-});
-
-
 export default app;
