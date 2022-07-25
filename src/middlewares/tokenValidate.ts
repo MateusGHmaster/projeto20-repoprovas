@@ -14,14 +14,16 @@ export async function tokenValidate (req: Request, res: Response, next: NextFunc
         }
     }
 
-    const user = Jwt.verify(token, key);
+    const user = Jwt.verify(token, key, (e) => {
 
-    if (!user) {
-        throw {
-            type: 'not_found',
-            message: 'User: not found'
+        if (e) {
+            throw {
+                type: 'not_found',
+                message: 'User: not found'
+            };
         }
-    }
+
+    });
 
     res.locals.user = user;
 
