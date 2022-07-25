@@ -14,9 +14,9 @@ export async function tokenValidate (req: Request, res: Response, next: NextFunc
         }
     }
 
-    const user = Jwt.verify(token, key, (e) => {
+    const user = Jwt.verify(token, key, (error) => {
 
-        if (e) {
+        if (error) {
             throw {
                 type: 'not_found',
                 message: 'User: not found'
